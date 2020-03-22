@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package users;
+
+service UsersService {
+  rpc GetAll (UserToken) returns (Users) {}
+}
+
+enum UserRole {
+    UNKNOWN_CHANGE_TYPE = 0;
+    ADMIN = 1;
+    MODER = 2;
+    USER = 3;
+}
+
+message UserToken {
+    string accessToken = 1;
+  }
+
+message User {
+    int32 id = 1;
+    string email = 2;
+    string password = 3;
+    UserRole role = 4;
+    string salt = 5;
+}
+
+message Users {
+    repeated User users = 1;
+}

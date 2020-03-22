@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package auth;
+
+service AuthService {
+  rpc SignIn (AuthCredentialsDto) returns (UserToken) {}
+}
+
+message AuthCredentialsDto {
+  string email = 1;
+  string password = 2;
+}
+
+message UserToken {
+  string accessToken = 1;
+}
