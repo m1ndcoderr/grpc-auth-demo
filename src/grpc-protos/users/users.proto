@@ -8,14 +8,18 @@ service UsersService {
 
 enum UserRole {
     UNKNOWN_CHANGE_TYPE = 0;
-    ADMIN = 1;
-    MODER = 2;
-    USER = 3;
+    USER = 1;
+    ADMIN = 2;
+    MODER = 3;
 }
 
 message UserToken {
     string accessToken = 1;
   }
+
+message Users {
+    repeated User users = 1;
+}
 
 message User {
     int32 id = 1;
@@ -23,8 +27,4 @@ message User {
     string password = 3;
     UserRole role = 4;
     string salt = 5;
-}
-
-message Users {
-    repeated User users = 1;
 }

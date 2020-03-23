@@ -4,6 +4,7 @@ import { join } from 'path'
 export const grpcClientOptions: ClientOptions = {
   transport: Transport.GRPC,
   options: {
+    loader: { enums: String },
     package: ['auth', 'users'],
     protoPath: [
       join(__dirname, '../src/grpc-protos/auth/auth.proto'),
